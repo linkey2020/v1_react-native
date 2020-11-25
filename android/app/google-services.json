@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "744578516144",
+    "firebase_url": "https://linkey-v1-b6d33.firebaseio.com",
+    "project_id": "linkey-v1-b6d33",
+    "storage_bucket": "linkey-v1-b6d33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744578516144:android:95f8f5b18d265fdd922775",
+        "android_client_info": {
+          "package_name": "com.v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744578516144-4ph3gqi0jg8go2o89b8un20ahi1bd6mn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.v1",
+            "certificate_hash": "56cbfc8ab32e7c2327f006667766c02b67cb94f6"
+          }
+        },
+        {
+          "client_id": "744578516144-1pjkkbgfljcsl3q15qfaovun8b0b0q8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz3VemTXGq0JPWax76-u5Sed9aTGi57mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744578516144-1pjkkbgfljcsl3q15qfaovun8b0b0q8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Button from 'react-native-button';
-import { Text, View, Image, AppState, Platform } from 'react-native';
+import {Text, View, Image, AppState, Platform} from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 import TNActivityIndicator from '../../truly-native/TNActivityIndicator';
-import { IMLocalized } from '../../localization/IMLocalization';
+import {IMLocalized} from '../../localization/IMLocalization';
 import dynamicStyles from './styles';
-import { useColorScheme } from 'react-native-appearance';
-import { getChannel } from '../../chat/firebase/channel';
-import { setUserData } from '../redux/auth';
-import { connect } from 'react-redux';
+import {useColorScheme} from 'react-native-appearance';
+import {getChannel} from '../../chat/firebase/channel';
+import {setUserData} from '../redux/auth';
+import {connect} from 'react-redux';
 import authManager from '../utils/authManager';
-import { updateUser } from '../../firebase/auth';
+import {updateUser} from '../../firebase/auth';
 
 const WelcomeScreen = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +38,7 @@ const WelcomeScreen = (props) => {
     const userID = currentUser.current?.id || currentUser.current?.userID;
 
     if (nextAppState === 'active' && userID && Platform.OS === 'ios') {
-      updateUser(userID, { badgeCount: 0 });
+      updateUser(userID, {badgeCount: 0});
     }
   };
 
@@ -53,7 +53,7 @@ const WelcomeScreen = (props) => {
           props.setUserData({
             user: response.user,
           });
-          props.navigation.navigate('MainStack', { user: user });
+          props.navigation.navigate('MainStack', {user: user});
         }
         setIsLoading(false);
       })
@@ -65,7 +65,7 @@ const WelcomeScreen = (props) => {
   const registerOnNotificationOpenedApp = async () => {
     messaging().onNotificationOpenedApp((remoteMessage) => {
       const {
-        data: { channelID, type },
+        data: {channelID, type},
       } = remoteMessage;
 
       if (type === 'chat_message') {
@@ -75,7 +75,7 @@ const WelcomeScreen = (props) => {
     messaging().onMessage((remoteMessage) => {
       if (remoteMessage && Platform.OS === 'ios') {
         const userID = currentUser.current?.id || currentUser.current?.userID;
-        updateUser(userID, { badgeCount: 0 });
+        updateUser(userID, {badgeCount: 0});
       }
     });
   };
@@ -116,7 +116,7 @@ const WelcomeScreen = (props) => {
                 appStyles,
                 appConfig,
               })
-            : props.navigation.navigate('Login', { appStyles, appConfig });
+            : props.navigation.navigate('Login', {appStyles, appConfig});
         }}>
         {IMLocalized('Log In')}
       </Button>
@@ -130,7 +130,7 @@ const WelcomeScreen = (props) => {
                 appStyles,
                 appConfig,
               })
-            : props.navigation.navigate('Signup', { appStyles, appConfig });
+            : props.navigation.navigate('Signup', {appStyles, appConfig});
         }}>
         {IMLocalized('Sign Up')}
       </Button>
@@ -138,7 +138,7 @@ const WelcomeScreen = (props) => {
   );
 };
 
-const mapStateToProps = ({ auth, chat }) => {
+const mapStateToProps = ({auth, chat}) => {
   return {
     user: auth.user,
     channels: chat.channels,
